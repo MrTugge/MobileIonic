@@ -1,1 +1,50 @@
-/* Empty. Add your own CSS if you like */
+body {
+	font-family: 'Open Sans', sans-serif;
+}
+
+a {
+	color: inherit;
+	text-decoration: inherit;
+}
+
+.center {
+	margin-left:auto;
+	margin-right:auto;
+	text-align: center;
+}
+
+.btn-class{
+ cursor: pointer;
+ display: inline-block;
+ border:1px solid #C9AE34;
+ color: #473B04;
+ border-radius: 3px 3px 3px 3px;
+ -webkit-border-radius: 3px 3px 3px 3px;
+ -moz-border-radius: 3px 3px 3px 3px;
+ font-family: Verdana;
+ width: auto;
+ height: auto;
+ font-size: 16px;
+ padding: 10px 40px;
+ box-shadow: inset 0 1px 0 0 #FFF6CE,inset 0 -1px 0 0 #E3C852,inset 0 0 0 1px #FCE88D,0 2px 4px 0 #D4D4D4;
+ -moz-box-shadow: inset 0 1px 0 0 #FFF6CE,inset 0 -1px 0 0 #E3C852,inset 0 0 0 1px #FCE88D,0 2px 4px 0 #D4D4D4;
+ -webkit-box-shadow: inset 0 1px 0 0 #FFF6CE,inset 0 -1px 0 0 #E3C852,inset 0 0 0 1px #FCE88D,0 2px 4px 0 #D4D4D4;
+ text-shadow: 0 1px 0 #FFFFFF;
+ background-color: #FCB830;
+}
+.btn-class:hover, .btn-class:active{
+ border:1px solid #967D09;
+ color: #705D07;
+ box-shadow: inset 0 1px 0 0 #FFF6CE,inset 0 -1px 0 0 #E3C852,inset 0 0 0 1px #FCE88D;
+ -moz-box-shadow: inset 0 1px 0 0 #FFF6CE,inset 0 -1px 0 0 #E3C852,inset 0 0 0 1px #FCE88D;
+ -webkit-box-shadow: inset 0 1px 0 0 #FFF6CE,inset 0 -1px 0 0 #E3C852,inset 0 0 0 1px #FCE88D;
+ background-color: #FCA626;
+}
+
+.css-form input.ng-invalid.ng-touched {
+	border: 1px solid #FA787E;
+}
+
+.css-form input.ng-valid.ng-touched {
+	border: none;
+}
