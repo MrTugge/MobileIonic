@@ -1,5 +1,3 @@
-var test =  "test";
-
 angular.module('starter.controllers', [])
 
 .controller('LoginCtrl', function($scope) {
@@ -41,7 +39,7 @@ angular.module('starter.controllers', [])
 					password: $scope.credentials.password1
 				}
 			}).then(function successCallback(response) {
-				alert(response.data.toSource());
+				console.log(response);
 			}, function errorCallback(response) {
 				console.log(response);
 			});
@@ -58,7 +56,4 @@ angular.module('starter.controllers', [])
 .controller('AccountCtrl', function($scope) {})
 
 .controller('AppCtrl', function($scope) {
-	$scope.init = function() {
-		console.log(test);
-	}
 })
