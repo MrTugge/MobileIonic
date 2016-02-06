@@ -52,3 +52,8 @@ a {
 .form-center-text, .form-center-text input {
 	text-align:center;
 }
+
+.login-error {
+	min-height:30px;
+	color:red;
+}

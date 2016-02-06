@@ -5,12 +5,12 @@ navigation history that also transitions its views in and out.
 -->
 <ion-tabs class="tabs-icon-top tabs-color-active-positive" ng-if="userLoggedIn">
 
-  <!-- Dashboard Tab -->
+  <!-- Walking weather Tab -->
   <ion-tab title="Walking weather" icon-off="ion-ios-cloud-outline" icon-on="ion-ios-cloud" href="#/tab/ww">
     <ion-nav-view name="tab-ww"></ion-nav-view>
   </ion-tab>
 
-  <!-- Chats Tab -->
+  <!-- Alternative Tab -->
   <ion-tab title="Alternative" icon-off="ion-ios-film-outline" icon-on="ion-ios-film" href="#/tab/alt">
     <ion-nav-view name="tab-alt"></ion-nav-view>
   </ion-tab>
@@ -19,7 +19,6 @@ navigation history that also transitions its views in and out.
   <ion-tab title="Account" icon-off="ion-ios-person-outline" icon-on="ion-ios-person" href="#/tab/account">
     <ion-nav-view name="tab-account"></ion-nav-view>
   </ion-tab>
-
 </ion-tabs>
 
 <ion-tabs class="tabs-icon-top tabs-color-active-positive" ng-if="!userLoggedIn">

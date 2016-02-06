@@ -1,6 +1,8 @@
 <ion-view view-title="Register">
   <ion-content class="padding">
   	<div class="form form-center-text">
+  		<div class="login-error" id="login-error" style="display:none">
+		</div>
 		<form novalidate class="css-form">
 			<label class="item item-input">
 			  <input type="email" ng-model="credentials.email" ng-minlength="4" required placeholder="E-mail">
