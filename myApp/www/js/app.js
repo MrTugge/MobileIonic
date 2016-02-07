@@ -71,10 +71,10 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
       }
     }
   })
-  .state('tab.ww.check-weather', {
+  .state('tab.ww-check-weather', {
     url: '/checkweather',
     views: {
-      'inception': {
+      'tab-ww': {
         templateUrl: 'templates/check-weather.html',
         controller: 'WwCtrl'
       }

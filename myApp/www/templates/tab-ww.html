@@ -6,10 +6,10 @@
 		  <input type="text" ng-model="details.location" placeholder="Location">
 		</label>
 		When would you like to go there?
-		<label class="item item-input">
-		  <input type="date" ng-model="details.date" placeholder="Date">
-		</label>		
-		Which hour?
+		<ionic-datepicker date="currentDate" min="currentDate" max="maxDate" callback="datePickerCallback">
+			<button class="button button-block" ng-model="details.date"> {{ currentDate | date:'MM/dd/yyyy' }} </button>
+		</ionic-datepicker>
+		Which hour? (0 - 24)
 		<label class="item item-input">
 		  <input type="number" ng-model="details.hour" placeholder="Date" min="0" max="24"/>
 		</label>
