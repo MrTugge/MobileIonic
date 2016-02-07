@@ -53,9 +53,14 @@ a {
 	text-align:center;
 }
 
+.form-center-text .label {
+	padding:8px;
+}
+
 .login-error {
 	min-height:30px;
 	color:red;
+	margin-top:10px;
 }
 
 .tblMovie {
@@ -79,4 +84,16 @@ a {
 
 .weather-prediction .btn-class {
 	width: 280px;
+}
+
+.button-margin-top {
+	margin-top:15px;
+}
+
+.item-input {
+	padding: 6px 16px 5px 16px;
+}
+
+.item-input input {
+	padding-right:0;
 }

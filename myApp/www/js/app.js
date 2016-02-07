@@ -1,6 +1,7 @@
 var apiHost = "localhost";
 var apiPort = 3000;
 var appScope = {};
+var user = {};
 // Ionic Starter App
 
 // angular.module is a global place for creating, registering and retrieving Angular modules
@@ -80,6 +81,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
       }
     }
   })
+  
   .state('tab.alt', {
       url: '/alt',
       views: {

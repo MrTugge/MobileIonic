@@ -13,8 +13,6 @@ angular.module('starter.controllers', [])
 			$("#login-error").text("Please enter a password of at least 4 characters").show();
 		} else {
 
-			console.log($scope.credentials);
-
 			$http({
 				method:'POST',
 				headers: {'Content-Type': 'application/json' },
@@ -24,6 +22,12 @@ angular.module('starter.controllers', [])
 					password: $scope.credentials.password
 				}
 			}).then(function successCallback(response){
+				appScope.user.id = response.data.user._id;
+				appScope.user.display_name = response.data.user.display_name;
+				//appScope.user.password = response.data.user.password;
+				//appScope.user.username = response.data.user.username;
+				//appScope.user.balance = response.data.user.balance;
+
 				appScope.userLoggedIn = true;
 			}, function errorCallback(response){
 				console.log(response.data);
@@ -58,12 +62,12 @@ angular.module('starter.controllers', [])
 				data: { 
 					username: $scope.credentials.username,
 					display_name: $scope.credentials.username,
-					email: $scope.credentials.email,
+					e_mail: $scope.credentials.email,
 					password: $scope.credentials.password1
 				}
 			}).then(function successCallback(response) {
 				//$window.location.href = "/#/tab/login";
-				$state.go('tab.login')
+				$state.go('tab.login');
 				$("#login-error").text("Account created!").show();
 			}, function errorCallback(response) {
 				console.log("connectie error");
@@ -182,13 +186,68 @@ angular.module('starter.controllers', [])
 	}
 }])
 
-.controller('AccountCtrl', function($scope) {
-	
-})
+.controller('AccountCtrl', ['$scope', '$state', '$window', '$http', function($scope, $state, $window, $http) {
+	$scope.profileDetails = {};
+
+	$scope.initAccount = function() {
+		console.log(appScope.user.id);
+
+		$http({
+			method: 'GET',
+			url: "http://" + apiHost + ":" + apiPort + "/users/" + appScope.user.id + "",
+			headers: {'Content-Type': 'application/json'},
+		}).then(function successCallback(response) {
+			$scope.profileDetails.username = response.data.user.username;
+			$scope.profileDetails.display_name = response.data.user.display_name;
+			$scope.profileDetails.balance = response.data.user.balance;
+			$scope.profileDetails.password = response.data.user.password;
+			$scope.profileDetails.password2 = response.data.user.password;
+
+			console.log($scope.profileDetails);
+		}, function errorCallback(response) {
+		    console.log('connection error');
+		});
+	}
+
+	$scope.saveAccount = function(){
+		if ($scope.profileDetails.username.length < 4){
+			$("#login-error").text("Username should at least be 4 characters long").show();
+		} else if ($scope.profileDetails.display_name.length < 4){
+			$("#login-error").text("Display name should at least be 4 characters long").show();
+		} else if ($scope.profileDetails.balance < 0){
+			$("#login-error").text("Balance can't be lower then 0").show();
+		} else if ($scope.profileDetails.password.length < 4 || $scope.profileDetails.password2.length < 4){
+			$("#login-error").text("Please make sure the password is at least 4 characters long").show();
+		} else if ($scope.profileDetails.password != $scope.profileDetails.password2){
+			$("#login-error").text("Please make sure the passwords match").show();
+		} else {
+			$http({
+				method: 'PUT',
+				url: "http://" + apiHost + ":" + apiPort + "/users/" + appScope.user.id + "",
+				headers: {'Content-Type': 'application/json'},
+				data: {
+					username: $scope.profileDetails.username,
+					display_name: $scope.profileDetails.display_name,
+					password: $scope.profileDetails.balance,
+					description: $scope.profileDetails.password,
+				}
+			}).then(function successCallback(response) {
+				appScope.user.display_name = $scope.profileDetails.display_name;
+				$("#login-error").text("Account saved!").show();
+			}, function errorCallback(response) {
+			    console.log('connection error');
+			});
+		}
+	}
+
+	$scope.logOut = function() {
+		location.reload();
+	}
+}])
 
 .controller('AppCtrl', function($scope) {
 	appScope = $scope;
-	$scope.userLoggedIn = true; // REMOVE
+	$scope.userLoggedIn = true; // DEBUG MODE = true
 	$scope.user = {};
 	$scope.walkDetails = {};
 	$scope.weatherForecast = "";
