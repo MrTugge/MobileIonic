@@ -24,9 +24,7 @@ angular.module('starter.controllers', [])
 					password: $scope.credentials.password
 				}
 			}).then(function successCallback(response){
-				// Store the response data in session and set userLoggedIn op true zodat hij in de app komt
-
-				console.log(response);
+				appScope.userLoggedIn = true;
 			}, function errorCallback(response){
 				console.log(response.data);
 				$("#login-error").text("Username/Password combination incorrect").show();
@@ -35,7 +33,7 @@ angular.module('starter.controllers', [])
 	}
 })
 
-.controller('RegisterCtrl', ['$scope', '$http', '$location', '$window', function($scope, $http, $location, $window) {
+.controller('RegisterCtrl', ['$scope', '$http', '$state', '$window', function($scope, $http, $state, $window) {
 	$scope.credentials = {
 		email: "",
 		username: "",
@@ -64,7 +62,8 @@ angular.module('starter.controllers', [])
 					password: $scope.credentials.password1
 				}
 			}).then(function successCallback(response) {
-				$window.location.href = "/#/tab/login";
+				//$window.location.href = "/#/tab/login";
+				$state.go('tab.login')
 				$("#login-error").text("Account created!").show();
 			}, function errorCallback(response) {
 				console.log("connectie error");
@@ -73,7 +72,23 @@ angular.module('starter.controllers', [])
 	}
 }])
 
-.controller('WwCtrl', function($scope) {})
+.controller('WwCtrl', ['$scope', '$state', function($scope, $state) {
+	$scope.details = {
+		location: "",
+		date: "",
+		hour: -1
+	}
+	
+	$scope.weatherForecast = "";
+	
+	$scope.checkWeather = function() {
+		$state.go('tab.ww.check-weather');
+	}
+	
+	$scope.getForecast = function() {
+		alert("yo");
+	}
+}])
 
 .controller('AltCtrl', function($scope) {})
 
@@ -82,4 +97,6 @@ angular.module('starter.controllers', [])
 .controller('AccountCtrl', function($scope) {})
 
 .controller('AppCtrl', function($scope) {
+	appScope = $scope;
+	$scope.userLoggedIn = true; // REMOVE
 })
