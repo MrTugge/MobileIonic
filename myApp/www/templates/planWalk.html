@@ -1,0 +1,20 @@
+<ion-view view-title="Plan Your Walk" ng-controller="planWalkCtrl">
+    <ion-pane>
+	    <ion-content>
+	    <form id="route" name="route">
+	    	<div class="button" ng-click="home()">Around current location </div>
+	        <div id="map" data-tap-disabled="true"></div>
+	        	<div id="routes">
+		        	<table id="walkingRoute">
+		        		<tr>
+		        			<td id="route">Route</td>
+		        		</tr>
+		        	</table>
+		        </div>
+		        <div id="clear">
+		        	<input type="submit" value="Reset"  ng-click="reset()"></input>
+		        </div>
+		</form>
+	  	</ion-content>
+    </ion-pane>
+</ion-view>

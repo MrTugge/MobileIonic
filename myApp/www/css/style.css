@@ -1,1 +1,9 @@
-/* Empty. Add your own CSS if you like */
+#map {
+    height:420px;
+    width:600px;
+}
+
+#route {
+	width: auto;
+	height: auto;
+}

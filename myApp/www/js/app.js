@@ -40,12 +40,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
   // Each tab has its own nav history stack:
 
-  .state('tab.ww', {
-    url: '/ww',
+  .state('tab.planWalk', {
+    url: '/planWalk',
     views: {
-      'tab-ww': {
-        templateUrl: 'templates/tab-ww.html',
-        controller: 'WwCtrl'
+      'tab.planWalk': {
+        templateUrl: 'templates/planWalk.html',
+        controller: 'planWalkCtrl'
       }
     }
   })
@@ -80,6 +80,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/ww');
+  $urlRouterProvider.otherwise('/tab/planWalk');
 
 });
