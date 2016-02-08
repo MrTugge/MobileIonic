@@ -1,14 +1,44 @@
-<!--
-  This template loads for the 'tab.friend-detail' state (app.js)
-  'friend' is a $scope variable created in the FriendsCtrl controller (controllers.js)
-  The FriendsCtrl pulls data from the Friends service (service.js)
-  The Friends service returns an array of friend data
--->
 <ion-view view-title="{{chat.name}}">
-  <ion-content class="padding">
-    <img ng-src="{{chat.face}}" style="width: 64px; height: 64px">
-    <p>
-      {{chat.lastText}}
-    </p>
+  <ion-content class="padding" ng-init="init()">
+	<div class="standard-content col-md-8 col-md-push-2 text-middle single-movie">
+		<div class="buy-movie">
+			<form action="?p=step3" method="POST">
+				<div class="btn-class" ng-click="buyMovie(movie.id)">$ 9,95</div>
+			</form>
+		</div>
+		<div class="row">
+			<div class="title">
+				<h3>{{ movie.title }}</h3>
+			</div>
+		</div>
+		<div class="row movie-details">
+			<div class="col-md-4 img">
+				<img src="{{ movie.image }}" width="200" align="left" />
+			</div>
+			<div class="col-md-8 text">
+				<div class="movie_details">
+					<b>Description</b>
+					<p>
+						{{ movie.desc }}
+					</p>
+					
+					<b>Director{{ (movie.directors.length > 1 ? "s" : "") }}</b>
+					<p>
+						<span ng-repeat="director in movie.directors">{{ director }}{{$last ? '' : ', '}}</span>
+					</p>
+					
+					<b>Writer{{ (movie.writers.length > 1 ? "s" : "") }}</b>
+					<p>
+						<span ng-repeat="writer in movie.writers">{{ writer }}{{$last ? '' : ', '}}</span>
+					</p>
+					
+					<b>Star{{ (movie.stars.length > 1 ? "s" : "") }}</b>
+					<p>
+						<span ng-repeat="star in movie.stars">{{ star }}{{$last ? '' : ', '}}</span>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
   </ion-content>
 </ion-view>

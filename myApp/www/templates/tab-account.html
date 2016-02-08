@@ -1,5 +1,49 @@
 <ion-view view-title="Account">
-  <ion-content>
-    
+  <ion-content class="padding">
+  	<div ng-init="initAccount()" class="form-center-text">
+  		<div class="login-error" id="login-error" style="display:none"></div>
+		<form name="editAccountForm" method="post" validate form-autofill-fix>
+			<div class="label">
+				<label>Username</label>
+			</div>
+			<md-input-container flex class="item item-input">
+				<input required="Username can't be empty" type="text" ng-model="profileDetails.username" max-length="40" min-length="4">
+			</md-input-container>
+
+			<div class="label">
+				<label>Display name</label>
+			</div>
+			<md-input-container flex class="item item-input">
+				<input required="Display name can't be empty" type="text" ng-model="profileDetails.display_name" max-lenth="40" min-length="4">
+			</md-input-container>
+
+			<div class="label">
+				<label>Password</label>
+			</div>
+			<md-input-container flex class="item item-input">
+				<input required="Password can't be empty" type="password" ng-model="profileDetails.password" max-length="40" min-length="4">
+			</md-input-container>
+
+			<div class="label">
+				<label>Repeat password</label>
+			</div>
+			<md-input-container flex class="item item-input">	
+				<input required="Password can't be empty " type="password" ng-model="profileDetails.password2" max-length="40" min-length="4">
+			</md-input-container>
+
+			<div class="label">
+				<label>Balance</label>
+			</div>
+			<md-input-container flex class="item item-input">	
+				<input type="number" ng-model="profileDetails.balance" min="0">
+			</md-input-container>
+
+			<div class="button-bar bar-calm button-margin-top">
+				<md-button class="button" ng-click="saveAccount()">Save</md-button>
+			</div>
+		</form>
+
+		<span class="btn-class margin-left button-margin-top" ng-click="logOut()">Logout</span>
+	</div>
   </ion-content>
 </ion-view>

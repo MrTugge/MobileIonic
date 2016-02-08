@@ -6,6 +6,7 @@
     <title></title>
 
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+	<link href="lib/datepicker-for-ionic/dist/style.css" rel="stylesheet"> 
     <link href="css/style.css" rel="stylesheet">
 
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
@@ -14,6 +15,9 @@
 
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
+	<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+	<script src="lib/datepicker-for-ionic/dist/templates.min.js"></script>
+	<script src="lib/datepicker-for-ionic/dist/ionic-datepicker.min.js"></script>
 
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
@@ -26,6 +30,9 @@
     <script src="lib/ionic/js/gmaps.js"></script>
     <script src="js/controllers.js"></script>
     <script src="js/services.js"></script>
+    <script src="js/general.js"></script>
+	
+<!-- path to ionic/angularjs js -->
   </head>
   <body ng-app="starter" ng-controller="AppCtrl" ng-init="init()">
     <!--

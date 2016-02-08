@@ -1,0 +1,26 @@
+<ion-view view-title="Register">
+  <ion-content class="padding">
+  	<div class="form form-center-text">
+  		<div class="login-error" id="login-error" style="display:none">
+		</div>
+		<form novalidate class="css-form">
+			<label class="item item-input">
+			  <input type="email" ng-model="credentials.email" ng-minlength="4" required placeholder="E-mail">
+			</label>
+			<label class="item item-input">
+			  <input type="text" ng-model="credentials.username" ng-minlength="4" required placeholder="Username">
+			</label>
+			<label class="item item-input">
+			  <input type="password" ng-model="credentials.password1" ng-minlength="4" required placeholder="Password">
+			</label>
+			<label class="item item-input">
+			  <input type="password" ng-model="credentials.password2" ng-minlength="4" required placeholder="Repeat password">
+			</label>
+			<br />
+			<div class="button-bar bar-calm">
+			  <a ng-click="register()" class="button">Register</a>
+			</div>
+		</form>
+	</div>
+  </ion-content>
+</ion-view>

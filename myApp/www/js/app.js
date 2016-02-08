@@ -1,3 +1,7 @@
+var apiHost = "localhost";
+var apiPort = 3000;
+var appScope = {};
+var user = {};
 // Ionic Starter App
 
 // angular.module is a global place for creating, registering and retrieving Angular modules
@@ -5,7 +9,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'ionic-datepicker'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -32,24 +36,62 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   $stateProvider
 
   // setup an abstract state for the tabs directive
-    .state('tab', {
+  .state('tab', {
     url: '/tab',
     abstract: true,
     templateUrl: 'templates/tabs.html'
   })
 
   // Each tab has its own nav history stack:
+  .state('tab.login', {
+    url: '/login',
+    views: {
+      'tab.login': {
+        templateUrl: 'templates/login.html',
+        controller: 'LoginCtrl'
+      }
+    }
+  })
+  
+  .state('tab.register', {
+    url: '/register',
+    views: {
+      'tab.register': {
+        templateUrl: 'templates/register.html',
+        controller: 'RegisterCtrl'
+      }
+    }
+  })
+  
+  .state('tab.ww', {
+    url: '/ww',
+    views: {
+      'tab-ww': {
+        templateUrl: 'templates/tab-ww.html',
+        controller: 'WwCtrl'
+      }
+    }
+  })
+  .state('tab.ww-check-weather', {
+    url: '/checkweather',
+    views: {
+      'tab-ww': {
+        templateUrl: 'templates/check-weather.html',
+        controller: 'WwCtrl'
+      }
+    }
+  })
 
-  .state('tab.planWalk', {
+  .state('tab.ww-planWalk', {
     url: '/planWalk',
     views: {
-      'tab.planWalk': {
+      'tab-ww': {
         templateUrl: 'templates/planWalk.html',
         controller: 'planWalkCtrl'
       }
     }
   })
-
+  
   .state('tab.alt', {
       url: '/alt',
       views: {
@@ -80,6 +122,5 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/planWalk');
-
+  $urlRouterProvider.otherwise('/tab/ww');
 });
