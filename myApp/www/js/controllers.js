@@ -169,13 +169,14 @@ angular.module('starter.controllers', [])
     }
     
     $scope.buyMovie = function(movieId) {
-        
+        console.log(movieId);
+        console.log("http://" + apiHost + ":" + apiPort + "/users/transaction");
         $http({
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             url: "http://" + apiHost + ":" + apiPort + "/users/transaction",
             data: { 
-                description: movieId,
+                desc: movieId,
                 amount: 9.95,
                 user_id: appScope.user.id
             }
