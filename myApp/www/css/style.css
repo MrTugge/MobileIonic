@@ -1,3 +1,103 @@
+body {
+	font-family: 'Open Sans', sans-serif;
+}
+
+a {
+	color: inherit;
+	text-decoration: inherit;
+}
+
+.center {
+	margin-left:auto;
+	margin-right:auto;
+	text-align: center;
+}
+
+.btn-class{
+ cursor: pointer;
+ display: inline-block;
+ border:1px solid #C9AE34;
+ color: #473B04;
+ border-radius: 3px 3px 3px 3px;
+ -webkit-border-radius: 3px 3px 3px 3px;
+ -moz-border-radius: 3px 3px 3px 3px;
+ font-family: Verdana;
+ width: auto;
+ height: auto;
+ font-size: 16px;
+ padding: 10px 40px;
+ box-shadow: inset 0 1px 0 0 #FFF6CE,inset 0 -1px 0 0 #E3C852,inset 0 0 0 1px #FCE88D,0 2px 4px 0 #D4D4D4;
+ -moz-box-shadow: inset 0 1px 0 0 #FFF6CE,inset 0 -1px 0 0 #E3C852,inset 0 0 0 1px #FCE88D,0 2px 4px 0 #D4D4D4;
+ -webkit-box-shadow: inset 0 1px 0 0 #FFF6CE,inset 0 -1px 0 0 #E3C852,inset 0 0 0 1px #FCE88D,0 2px 4px 0 #D4D4D4;
+ text-shadow: 0 1px 0 #FFFFFF;
+ background-color: #FCB830;
+}
+.btn-class:hover, .btn-class:active{
+ border:1px solid #967D09;
+ color: #705D07;
+ box-shadow: inset 0 1px 0 0 #FFF6CE,inset 0 -1px 0 0 #E3C852,inset 0 0 0 1px #FCE88D;
+ -moz-box-shadow: inset 0 1px 0 0 #FFF6CE,inset 0 -1px 0 0 #E3C852,inset 0 0 0 1px #FCE88D;
+ -webkit-box-shadow: inset 0 1px 0 0 #FFF6CE,inset 0 -1px 0 0 #E3C852,inset 0 0 0 1px #FCE88D;
+ background-color: #FCA626;
+}
+
+.css-form input.ng-invalid.ng-touched {
+	border: 1px solid #FA787E;
+}
+
+.css-form input.ng-valid.ng-touched {
+	border: none;
+}
+
+.form-center-text, .form-center-text input {
+	text-align:center;
+}
+
+.form-center-text .label {
+	padding:8px;
+}
+
+.login-error {
+	min-height:30px;
+	color:red;
+	margin-top:10px;
+}
+
+.tblMovie {
+	border-radius: 3px;
+	border: 1px solid rgba(0,0,0,0.2);
+	width: 320px;
+	cursor: pointer;
+}
+
+.tblMovie:hover {
+	background-color: rgba(0,0,0,0.1);
+}
+
+#map {
+	width: 400px;
+	height: 300px;
+	margin-top: 50px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.weather-prediction .btn-class {
+	width: 280px;
+}
+
+.button-margin-top {
+	margin-top:15px;
+}
+
+.item-input {
+	padding: 6px 16px 5px 16px;
+}
+
+.item-input input {
+	padding-right:0;
+}
+
 #map {
     height:420px;
     width:600px;
@@ -6,4 +106,19 @@
 #route {
 	width: auto;
 	height: auto;
+	text-align: center;
+}
+
+#routes {
+	width: auto;
+	height: auto;
+	text-align: center;
+}
+
+#walkingRoute {
+	width: auto;
+	height: auto;
+	margin-top: 20px;
+	margin-right: auto;
+	margin-left: auto;
 }

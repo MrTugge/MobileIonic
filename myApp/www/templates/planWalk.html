@@ -2,18 +2,18 @@
     <ion-pane>
 	    <ion-content>
 	    <form id="route" name="route">
-	    	<div class="button" ng-click="home()">Around current location </div>
 	        <div id="map" data-tap-disabled="true"></div>
 	        	<div id="routes">
-		        	<table id="walkingRoute">
+		        	<table id="walkingRoute" >
 		        		<tr>
 		        			<td id="route">Route</td>
 		        		</tr>
 		        	</table>
-		        </div>
-		        <div id="clear">
-		        	<input type="submit" value="Reset"  ng-click="reset()"></input>
-		        </div>
+		        
+			        <!--<div id="clear">
+			        	<input type="submit" value="Reset"  onclick="window.location.reload()"></input>
+			        </div>-->
+		    	</div>
 		</form>
 	  	</ion-content>
     </ion-pane>
