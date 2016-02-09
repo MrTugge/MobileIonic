@@ -102,7 +102,7 @@ angular.module('starter.controllers', [])
             }).then(function successCallback(response) {
                 var weather = response.data.result.weather.description;
                 var iconUrl = response.data.result.weather.icon;
-                $scope.weatherForecast = weather + " <img src='http://openweathermap.org/img/w/" + iconUrl + ".png' />";
+                $scope.weatherForecast = "<img src='http://openweathermap.org/img/w/" + iconUrl + ".png' /><br>" + weather;
                 appScope.walkDetails = $scope.details;
                 appScope.weatherForecast = $scope.weatherForecast;
                 $state.go('tab.ww-check-weather');

@@ -1,17 +1,16 @@
 <ion-view view-title="Alternative Options">
   <ion-content ng-init="loadPopularMovies()">
     <div ng-repeat="movie in popularMovies">
-		<table ng-click="showMovie(movie.id)" class="tblMovie center">
-			<tr>
-				<td>
-					<img src="{{ movie.image }}"/>
-				</td>
-				<td align="left">
-					<b>{{ movie.title }}</b><br />
-					<br />
+		<div ng-click="showMovie(movie.id)" class="tblMovie center">
+			<img src="{{ movie.image }}"/>
+			<div class="alt-movie-text">
+				<div class="title">
+					<b>{{ movie.title }}</b>
+				</div>
+				<div class="rating">
 					{{ movie.rating }}
-				</td>
-			</tr>
+				</div>
+			</div>
 		</table>
 	</div>
   </ion-content>

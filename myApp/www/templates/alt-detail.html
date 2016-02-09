@@ -2,42 +2,34 @@
   <ion-content class="padding" ng-init="init()">
 	<div class="standard-content col-md-8 col-md-push-2 text-middle single-movie">
 		<div class="buy-movie">
-			<form action="?p=step3" method="POST">
-				<div class="btn-class" ng-click="buyMovie(movie.id)">$ 9,95</div>
-			</form>
+			<div class="btn-class" ng-click="buyMovie(movie.id)">$ 9,95</div>
 		</div>
-		<div class="row">
-			<div class="title">
-				<h3>{{ movie.title }}</h3>
-			</div>
+		<div class="title">
+			<h3>{{ movie.title }}</h3>
 		</div>
-		<div class="row movie-details">
-			<div class="col-md-4 img">
-				<img src="{{ movie.image }}" width="200" align="left" />
-			</div>
-			<div class="col-md-8 text">
-				<div class="movie_details">
-					<b>Description</b>
-					<p>
-						{{ movie.desc }}
-					</p>
-					
-					<b>Director{{ (movie.directors.length > 1 ? "s" : "") }}</b>
-					<p>
-						<span ng-repeat="director in movie.directors">{{ director }}{{$last ? '' : ', '}}</span>
-					</p>
-					
-					<b>Writer{{ (movie.writers.length > 1 ? "s" : "") }}</b>
-					<p>
-						<span ng-repeat="writer in movie.writers">{{ writer }}{{$last ? '' : ', '}}</span>
-					</p>
-					
-					<b>Star{{ (movie.stars.length > 1 ? "s" : "") }}</b>
-					<p>
-						<span ng-repeat="star in movie.stars">{{ star }}{{$last ? '' : ', '}}</span>
-					</p>
-				</div>
-			</div>
+		<div class="img">
+			<img src="{{ movie.image }}" align="left" />
+		</div>
+		<div class="text">
+			<b>Description</b>
+			<p>
+				{{ movie.desc }}
+			</p>
+			
+			<b>Director{{ (movie.directors.length > 1 ? "s" : "") }}</b>
+			<p>
+				<span ng-repeat="director in movie.directors">{{ director }}{{$last ? '' : ', '}}</span>
+			</p>
+			
+			<b>Writer{{ (movie.writers.length > 1 ? "s" : "") }}</b>
+			<p>
+				<span ng-repeat="writer in movie.writers">{{ writer }}{{$last ? '' : ', '}}</span>
+			</p>
+			
+			<b>Star{{ (movie.stars.length > 1 ? "s" : "") }}</b>
+			<p>
+				<span ng-repeat="star in movie.stars">{{ star }}{{$last ? '' : ', '}}</span>
+			</p>
 		</div>
 	</div>
   </ion-content>
