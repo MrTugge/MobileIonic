@@ -24,13 +24,9 @@ angular.module('starter.controllers', [])
             }).then(function successCallback(response){
                 appScope.user.id = response.data.user._id;
                 appScope.user.display_name = response.data.user.display_name;
-                //appScope.user.password = response.data.user.password;
-                //appScope.user.username = response.data.user.username;
-                //appScope.user.balance = response.data.user.balance;
 
                 appScope.userLoggedIn = true;
             }, function errorCallback(response){
-                console.log(response.data);
                 $("#login-error").text("Username/Password combination incorrect").show();
             });
         }
@@ -70,7 +66,7 @@ angular.module('starter.controllers', [])
                 $state.go('tab.login');
                 $("#login-error").text("Account created!").show();
             }, function errorCallback(response) {
-                console.log("connectie error");
+                $("#login-error").text("Connection error").show();
             });
         }
     }
@@ -107,7 +103,7 @@ angular.module('starter.controllers', [])
                 appScope.weatherForecast = $scope.weatherForecast;
                 $state.go('tab.ww-check-weather');
             }, function errorCallback(response) {
-                console.log("connectie error");
+                alert("Connection error");
             });
         }
     }
@@ -144,7 +140,7 @@ angular.module('starter.controllers', [])
         }).then(function successCallback(response) {
             $scope.popularMovies = response.data.result;
         }, function errorCallback(response) {
-            console.log("connectie error");
+            alert("Connection error");
         });
     }
     
@@ -156,7 +152,7 @@ angular.module('starter.controllers', [])
             appScope.movieDetails = response.data.result;
             $state.go("tab.alt-detail");
         }, function errorCallback(response) {
-            console.log("connectie error");
+            alert("Connection error");
         });
     }
 }])
@@ -169,8 +165,6 @@ angular.module('starter.controllers', [])
     }
     
     $scope.buyMovie = function(movieId) {
-        console.log(movieId);
-        console.log("http://" + apiHost + ":" + apiPort + "/users/transaction");
         $http({
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -192,8 +186,6 @@ angular.module('starter.controllers', [])
     $scope.profileDetails = {};
 
     $scope.initAccount = function() {
-        console.log(appScope.user.id);
-
         $http({
             method: 'GET',
             url: "http://" + apiHost + ":" + apiPort + "/users/" + appScope.user.id + "",
@@ -204,10 +196,7 @@ angular.module('starter.controllers', [])
             $scope.profileDetails.balance = response.data.user.balance;
             $scope.profileDetails.password = response.data.user.password;
             $scope.profileDetails.password2 = response.data.user.password;
-
-            console.log($scope.profileDetails);
         }, function errorCallback(response) {
-            console.log('connection error');
         });
     }
 
@@ -237,7 +226,7 @@ angular.module('starter.controllers', [])
                 appScope.user.display_name = $scope.profileDetails.display_name;
                 $("#login-error").text("Account saved!").show();
             }, function errorCallback(response) {
-                console.log('connection error');
+                $("#login-error").text("Connection error").show();
             });
         }
     }
@@ -255,34 +244,15 @@ angular.module('starter.controllers', [])
     $scope.weatherForecast = "";
     $scope.movieDetails = {};
     $scope.location = "";
+
+    function test(){
+        console.log("test");
+    }
 })
 
 .controller('planWalkCtrl', function($scope) {
     
     var address = appScope.location;
-    // $scope.reset = function() {
-    //     geocoder.geocode({'address': address}, function(results, status) {
-    //         if (status === google.maps.GeocoderStatus.OK) {
-    //             var mapOptions = {
-    //                 div: '#map',
-    //                 zoom: 15,
-    //                 center: results[0].geometry.location,
-    //                 mapTypeId: google.maps.MapTypeId.ROADMAP
-    //             }
-    //             var table = document.getElementById('walkingRoute');
-    //             table.innerHTML = '';
-    //             $scope.map = new GMaps(mapOptions);
-    //         }
-    //     });
-
-    //     GMaps.on('click', $scope.map, function(event) {
-    //         var marker = new google.maps.Marker({
-    //             position: event.latLng,
-    //             map: $scope.map.map
-    //         });
-    //     });
-    // }
-
     var geocoder = new google.maps.Geocoder();
     var infowindow = new google.maps.InfoWindow;
     var coords = [];
